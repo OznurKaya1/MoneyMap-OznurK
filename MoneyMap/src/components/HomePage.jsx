@@ -14,6 +14,7 @@ export default function HomePage() {
       <img src={Logo} className='home-icon' alt='icon' />
       <h1>MoneyMap</h1>
       <h3>Map Your Wealth</h3>
+      <button className='Start'>Get Started ➜ </button>
     </div>
   )
 }
