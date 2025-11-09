@@ -1,10 +1,11 @@
-import React from'react'
-import WelcomePage from './components/WelcomePage'
+import React from 'react'
+import Homepage from './components/HomePage'
+
 
 export default function App(){
     return(
         <div>
-            <WelcomePage></WelcomePage>
+            <Homepage />
         </div>
     )
 }

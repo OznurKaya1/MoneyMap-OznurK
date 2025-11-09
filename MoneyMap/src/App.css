@@ -1,25 +1,5 @@
-.welcome-container {
+.app-container {
   display: flex;
-  justify-content: center;    /* center horizontally */
-  align-items: center;        /* center vertically */
-  min-height: 100vh;          /* full viewport height */
-  text-align: center;
-
-  /* Background image */
-  background-image: url('./Images/background.jpeg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;   /* fit entire image without cropping */
-
-  background-color: #1a1a1a; /* fallback color */
-  padding: 20px;
-}
-
-.text-content {
-  color: white;
-}
-
-.brand {
-  color: #00bfff;
-  font-weight: bold;
+  flex-direction: column;
+  min-height: 100vh;
 }
