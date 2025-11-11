@@ -34,8 +34,8 @@ export default function SignUp() {
             setError("Your password must have at least one capital letter.")
             return;
         }
-        if(password.length != 9) {
-            setError("Your password must have 9 characters.")
+        if(password.length < 9) {
+            setError("Your password must be at least 9 characters.")
             return ;
         }
         if(!name){
