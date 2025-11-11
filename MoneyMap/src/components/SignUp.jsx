@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import LoginPage from './Images/LoginPage.jpg'
+import './signUp.css'
 
 export default function SignUp() {
     const [email, setEmail] = useState("")
@@ -16,22 +17,33 @@ export default function SignUp() {
 
         if (!email || !password) {
             setError("Please enter both email and password.")
-            return
+            return;
         }
 
         if (!email.includes("@") || !email.includes(".")) {
             setError("Please enter a valid email address.")
-            return
+            return;
         }
 
         if (!/\d/.test(password)) {
             setError("Your password must have at least one number.")
-            return
+            return;
         }
 
         if (!/[A-Z]/.test(password)) {
             setError("Your password must have at least one capital letter.")
-            return
+            return;
+        }
+        if(password.length != 9) {
+            setError("Your password must have 9 characters.")
+            return ;
+        }
+        if(!name){
+            setError("Please enter your name.")
+            return;
+        }
+        if(!lastname){
+            setError("Please enter your last name.")
         }
 
 
