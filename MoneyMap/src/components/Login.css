@@ -6,9 +6,6 @@ body, html {
   box-sizing: border-box;
 }
 
-
-
-/* Add styles to the form container */
 .container {
   position: absolute;
   right: 0;
@@ -16,9 +13,9 @@ body, html {
   max-width: 400px;
   padding: 56px;
   background-color:silver;
+  top:100px;
 }
 
-/* Full-width input fields */
   input[type=email], input[type=password] {
   width: 100%;
   padding: 15px;
@@ -32,7 +29,6 @@ input[type=email]:focus, input[type=password]:focus {
   outline: none;
 }
 
-/* Set a style for the submit button */
 .btn {
   background-color: #04AA6D;
   color: white;

@@ -1,29 +1,28 @@
-/* Make the whole page fill the screen and set background */
-.home-page {
-  width: 100vw; /* full viewport width */
-  height: 100vh; /* full viewport height */
-  background-size: cover; /* make background cover entire area */
-  background-position: center; /* center the background */
-  background-repeat: no-repeat; /* prevent tiling */
-  display: flex; /* flex to position content if needed */
-  flex-direction: column;
-  justify-content: center; /* center content vertically */
-  align-items: center; /* center content horizontally */
-  position: relative; /* needed for absolute positioning of icon */
-  overflow: hidden; /* hide overflow if image goes out */
-}
 
-/* Style for your icon in top-right corner */
+.home-page {
+  width: 100vw; 
+  height: 100vh; 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  position: relative; 
+  overflow: hidden; 
+
+}
 .home-icon {
-  position: absolute; /* position relative to parent */
-  top: 20px; /* distance from top */
-  right: 20px; /* distance from right */
-  width: 80px; /* size of icon, adjust as needed */
-  height: auto; /* maintain aspect ratio */
-  object-fit: contain; /* keep proportions */
-  background: transparent; /* remove any box/background */
-  border: none; /* remove any border */
-  z-index: 10; /* stay on top */
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+  width: 80px; 
+  height: auto;
+  object-fit: contain; 
+  background: transparent; 
+  border: none; 
+  z-index: 10; 
 }
 
 h1 {
