@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7895e4e07b8575dbb52ecca95fdda4d9b9736c6d
 body, html {
   height: 100%;
 }
@@ -46,4 +49,10 @@ input[type=email]:focus, input[type=password]:focus {
 h1 {
   font-family:sans-serif;
   text-align: left;
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> 7895e4e07b8575dbb52ecca95fdda4d9b9736c6d

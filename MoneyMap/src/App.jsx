@@ -8,8 +8,8 @@ import Footer from './components/layout/Footer'
 import './components/layout/layout.css';
 import './components/layout/Footer';
 
-
 export default function App() {
+  
   return (
     <div>
     <Header />
