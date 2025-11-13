@@ -2,6 +2,7 @@ import React from 'react'
 import './homePage.css'
 import background from './Images/background.jpg'
 import { Link } from 'react-router-dom'
+import Login from './Login'
 
 export default function HomePage() {
   return (
@@ -14,10 +15,9 @@ export default function HomePage() {
 
         <h1>MoneyMap</h1>
         <h3>Map Your Wealth</h3>
-        <Link to='/login'>
-          <button className='round-button'> Get Started</button>
-        </Link>
+
+        <Login />
       </div>
-      </main>
-      )
+    </main>
+  )
 }
