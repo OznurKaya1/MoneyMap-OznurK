@@ -1,6 +1,9 @@
 import React from 'react';
 import saving from '../Images/saving.jpg'
+import { useNavigate } from 'react-router';
+
 export default function Home() {
+    const navigate= useNavigate()
     return (
         <main>
             <div className="main-content">
@@ -30,6 +33,9 @@ export default function Home() {
                     your finances becomes intuitive, insightful, and even enjoyable.
                 </p>
                 <img src={saving} alt='Saving' className='saving-image'></img>
+                <button type="button" className="btn" onClick={() => navigate('/Dashboard')}>
+           Dashboard
+          </button>
             </div>
             
         </main>

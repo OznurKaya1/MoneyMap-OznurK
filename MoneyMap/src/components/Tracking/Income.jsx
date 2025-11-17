@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 import './Tracking.css';
 
 export default function Income({ incomeList, setIncomeList }) {
@@ -8,6 +9,7 @@ export default function Income({ incomeList, setIncomeList }) {
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
   const [editingIndex, setEditingIndex] = useState(null); // Track row being edited
+const navigate = useNavigate();
 
   const handleAddBtn = (e) => {
     e.preventDefault();
@@ -83,6 +85,11 @@ export default function Income({ incomeList, setIncomeList }) {
           <button type="button" className="btn" onClick={handleAddBtn}>
             Add
           </button>
+
+           <button type="button" className="btn" onClick={() => navigate('/expenses')}>
+           Go to Expenses
+          </button>
+
         </form>
       </section>
 
@@ -119,7 +126,7 @@ export default function Income({ incomeList, setIncomeList }) {
         </tbody>
         <tfoot>
           <tr>
-            <th>Total</th>
+            <th>Balance</th>
             <th>{totalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</th>
             <th></th>
           </tr>

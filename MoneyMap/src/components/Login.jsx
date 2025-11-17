@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
-//import LoginPage from './Images/LoginPage.jpg'
+
 
 export default function Login() {
     const [email, setEmail] = useState("")
@@ -38,15 +38,7 @@ export default function Login() {
 
     return (
         <div 
-        class='login-page'
-        /*  style={{
-                backgroundImage: `url(${LoginPage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                height: '100vh',
-                width: '100%',
-
-            }}*/>
+        class='login-page'>
             <form class='container'>
                 <div className='input-box'>
                     <h1>Login</h1>

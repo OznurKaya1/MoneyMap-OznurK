@@ -1,6 +1,9 @@
 import React from 'react'
+import {useState} from'react'
+import { useNavigate } from 'react-router'
 
 export default function Contact() {
+  const navigate = useNavigate()
   return (
     <div className="contact-container">
       <p>
@@ -41,6 +44,9 @@ export default function Contact() {
 
         <input type="submit" value="Submit" />
       </form>
+      <button type="button" className="btn" onClick={() => navigate('/Dashboard')}>
+           Dashboard
+          </button>
     </div>
   )
 }

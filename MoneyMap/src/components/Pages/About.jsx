@@ -1,7 +1,11 @@
 import React from 'react'
+import {useState} from'react'
+import { useNavigate } from 'react-router-dom'
+
 
 import Dollar from '../Images/dollar.jpg'
 export default function About() {
+    const navigate = useNavigate();
     return (
 
 
@@ -27,6 +31,9 @@ export default function About() {
                 journey toward better money management starts here. </p>
 
             <img src={Dollar} alt='dollar' className='dollar-image'></img>
+            <button type="button" className="btn" onClick={() => navigate('/Dashboard')}>
+           Dashboard
+          </button>
         </div>
 
 
