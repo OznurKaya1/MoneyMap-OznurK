@@ -1,9 +1,8 @@
 import React from 'react'
 import {useState} from'react'
 import { useNavigate } from 'react-router-dom'
-
-
 import Dollar from '../Images/dollar.jpg'
+
 export default function About() {
     const navigate = useNavigate();
     return (

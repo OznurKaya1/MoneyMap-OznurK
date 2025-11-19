@@ -25,7 +25,7 @@ export default function ForgotMyPassword() {
     return (
         <div className="forgot-my-password">
             <form className="container" onSubmit={handleForgotMyPassword}>
-                <h1>Please enter your email to <strong>reset</strong>your password</h1>
+                <h2>Please enter your email to <strong>reset</strong>your password</h2>
                 <label htmlFor="email"></label>
                 <input
                     type="email"

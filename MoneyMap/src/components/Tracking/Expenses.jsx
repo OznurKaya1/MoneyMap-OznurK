@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-import "./Tracking.css";
+//import "./Tracking.css";
+
+import { useNavigate } from "react-router";
 
 export default function Expenses({ expenseList, setExpenseList }) {
   const [date, setDate] = useState("");
@@ -48,8 +50,16 @@ export default function Expenses({ expenseList, setExpenseList }) {
 
   const totalExpense = expenseList.reduce((sum, item) => sum + item.amount, 0);
 
+ const handleKeyDown =(e) => {
+    if(e.key === "Enter"){
+      e.preventDefault()
+      handleAddBtn(e)
+    }
+  }
+  const navigate= useNavigate()
+
   return (
-    <div className="main-container">
+    <div className="main-container-table">
       <section>
         <form>
           {error && <p className="error">{error}</p>}
@@ -68,6 +78,7 @@ export default function Expenses({ expenseList, setExpenseList }) {
             id="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+             onKeyDown={handleKeyDown}
           />
 
           <label htmlFor="description">Description</label>
@@ -76,9 +87,13 @@ export default function Expenses({ expenseList, setExpenseList }) {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+             onKeyDown={handleKeyDown}
           />
 
           <button type="button" className="btn" onClick={handleAddBtn}>Add</button>
+          <button type="button" className="btn" onClick={() => navigate('/income')}>
+           Go to Income Page
+          </button>
         </form>
       </section>
 
@@ -111,7 +126,7 @@ export default function Expenses({ expenseList, setExpenseList }) {
 
         <tfoot>
           <tr>
-            <th>Total</th>
+            <th>Total Expenses</th>
             <th>{totalExpense.toLocaleString("en-US", { style: "currency", currency: "USD" })}</th>
             <th></th>
           </tr>

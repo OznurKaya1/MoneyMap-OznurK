@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <main>
             <div className="main-content">
-                <h2>Hello,</h2>
+                <h2 className="home-page-h2">Hello,</h2>
                 <p>
                     Take control of your finances and see exactly where your money goes. MoneyMap
                     helps you organize your income, expenses, and savings in a simple, clear way,
@@ -27,7 +27,7 @@ export default function Home() {
                     your finances becomes simple, visual, and stress-free. Beyond just numbers, MoneyMap helps you take action. Set realistic savings
                     targets, create budgets that fit your lifestyle, and get gentle reminders
                     to keep you on track. See your progress over time, celebrate milestones, and
-                    adjust your plan as life changes. It’s more than just an app — it’s a financial
+                    adjust your plan as life changes. It’s more than just an app, it’s a financial
                     companion that simplifies complex money matters, so you can focus on building
                     the life you want without the stress of uncertainty. With MoneyMap, managing
                     your finances becomes intuitive, insightful, and even enjoyable.

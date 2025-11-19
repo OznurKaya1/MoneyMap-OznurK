@@ -12,9 +12,10 @@ import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Contact from "./components/Pages/Contact";
 import ForgotMyPassword from "./components/ForgotMyPassword";
-import "./components/layout/layout.css";
-import "./components/Pages/pages.css";
-import "./components/Dashboard.css";
+//import "./components/layout/layout.css";
+//import "./components/Pages/pages.css";
+//import "./components/Dashboard.css";
+import './App.css'
 
 export default function App() {
   const [incomeList, setIncomeList] = useState([]);

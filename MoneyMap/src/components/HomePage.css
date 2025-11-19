@@ -1,4 +1,4 @@
-.home-page {
+.home-page-background {
   width: 100vw; 
   height: 100vh; 
   background-size: cover; 
@@ -12,19 +12,8 @@
   overflow: hidden; 
 
 }
-.home-icon {
-  position: absolute; 
-  top: 20px; 
-  right: 20px; 
-  width: 80px; 
-  height: auto;
-  object-fit: contain; 
-  background: transparent; 
-  border: none; 
-  z-index: 10; 
-}
 
-h1 {
+.app-name {
   text-align: center;
   font-size: 4rem;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -34,7 +23,7 @@ h1 {
   
  
 }
-h3{
+.map-your-wealth{
   text-align: center;
   font-size: 1rem;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -43,18 +32,4 @@ h3{
   letter-spacing: 1px;
   
 
-}
-.round-button{
-  background-color:blanchedalmond;
-  border:none;
-  padding: 18px 60px;
-  border-radius:60px;
-  cursor:pointer;
-  font-size: 25px;
-  font-weight: 500;
-transition: background 0.3s ease, transform 0.2s ease;
-}
-.round-button:hover{
-  background-color: antiquewhite;
-   transform: scale(1.08);
 }

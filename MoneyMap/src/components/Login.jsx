@@ -39,9 +39,9 @@ export default function Login() {
     return (
         <div 
         class='login-page'>
-            <form class='container'>
+            <form class='login-container'>
                 <div className='input-box'>
-                    <h1>Login</h1>
+                    <h1 className='login'>Login</h1>
                     <label htmlFor='email'>Email</label>
                     <input
                         type='email'

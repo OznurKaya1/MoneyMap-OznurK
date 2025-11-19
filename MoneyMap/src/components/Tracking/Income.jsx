@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
-import './Tracking.css';
+//import './Tracking.css';
 
 export default function Income({ incomeList, setIncomeList }) {
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
-  const [editingIndex, setEditingIndex] = useState(null); // Track row being edited
-const navigate = useNavigate();
+  const [editingIndex, setEditingIndex] = useState(null);
+  const navigate = useNavigate();
 
   const handleAddBtn = (e) => {
     e.preventDefault();
@@ -22,16 +22,16 @@ const navigate = useNavigate();
     const newIncome = { date, amount: Number(amount), description };
 
     if (editingIndex === null) {
-      // Add new row
+
       setIncomeList([...incomeList, newIncome]);
     } else {
-      // Update existing row
+
       const updatedList = incomeList.map((item, idx) => idx === editingIndex ? newIncome : item);
       setIncomeList(updatedList);
-      setEditingIndex(null); // Reset editing state
+      setEditingIndex(null);
     }
 
-    // Clear form fields
+
     setDate("");
     setAmount("");
     setDescription("");
@@ -46,13 +46,19 @@ const navigate = useNavigate();
     setDate(item.date);
     setAmount(item.amount);
     setDescription(item.description);
-    setEditingIndex(index); // Mark row for updating
+    setEditingIndex(index);
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      handleAddBtn(e)
+    }
+  }
 
   const totalAmount = incomeList.reduce((sum, item) => sum + item.amount, 0);
 
   return (
-    <div className='main-container'>
+    <div className='main-container-table'>
       <section>
         <form>
           {error && <p className="error">{error}</p>}
@@ -71,6 +77,7 @@ const navigate = useNavigate();
             id="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
 
           <label htmlFor="description">Description</label>
@@ -79,15 +86,16 @@ const navigate = useNavigate();
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
 
-          {/* Always says "Add" */}
+
           <button type="button" className="btn" onClick={handleAddBtn}>
             Add
           </button>
 
-           <button type="button" className="btn" onClick={() => navigate('/expenses')}>
-           Go to Expenses
+          <button type="button" className="btn" onClick={() => navigate('/expenses')}>
+            Go to Expenses
           </button>
 
         </form>
