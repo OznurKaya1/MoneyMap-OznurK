@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './login.css'
+
 
 
 export default function Login() {
@@ -31,9 +31,13 @@ export default function Login() {
             setError("Your password must have at least one capital letter.")
             return
         }
+        if(password.length < 9){
+            setError("Your password must be at least 9 characters long.")
+            return
+        }
 
 
-        navigate("/dashboard")
+        navigate("/home")
     }
 
     return (
@@ -71,17 +75,14 @@ export default function Login() {
 
                 <button type='submit' class='btn' onClick={handleLogin}>Login</button>
 
-                <p>
+                <div className='login-links'>
                     <Link to='/signup' className="clickable-underline">
                         Don't have an account?
                     </Link>
-                </p>
-
-                <p>
                     <Link to='/forgotmypassword' className="clickable-underline">
                         Forgot password?
                     </Link>
-                </p>
+               </div>
             </form>
         </div>
     )
