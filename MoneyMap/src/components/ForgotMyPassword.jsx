@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './ForgotMyPassword.css'
 export default function ForgotMyPassword() {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
@@ -19,13 +19,13 @@ export default function ForgotMyPassword() {
         }
 
         setError("");
-        navigate("/");
+        navigate("/home");
     }
 
     return (
         <div className="forgot-my-password">
             <form className="container" onSubmit={handleForgotMyPassword}>
-                <h2>Please enter your email to <strong>reset</strong>your password</h2>
+                <h2>Please enter your email to <strong>reset</strong> your password</h2>
                 <label htmlFor="email"></label>
                 <input
                     type="email"

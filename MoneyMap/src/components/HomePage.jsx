@@ -15,8 +15,9 @@ export default function HomePage() {
 
         <h1 className="app-name">MoneyMap</h1>
         <h3 className="map-your-wealth">Map Your Wealth</h3>
-
-        <Login />
+        <div className="login-wrapper">
+          <Login />
+        </div>
       </div>
     </div>
   )

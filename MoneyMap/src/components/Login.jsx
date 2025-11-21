@@ -42,8 +42,8 @@ export default function Login() {
 
     return (
         <div 
-        class='login-page'>
-            <form class='login-container'>
+        className='login-page'>
+            <form className='login-container'>
                 <div className='input-box'>
                     <h1 className='login'>Login</h1>
                     <label htmlFor='email'>Email</label>
@@ -73,7 +73,7 @@ export default function Login() {
 
                 {error && <p className='error-message'>{error}</p>}
 
-                <button type='submit' class='btn' onClick={handleLogin}>Login</button>
+                <button type='submit' className='btn' onClick={handleLogin}>Login</button>
 
                 <div className='login-links'>
                     <Link to='/signup' className="clickable-underline">

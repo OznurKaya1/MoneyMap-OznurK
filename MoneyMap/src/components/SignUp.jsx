@@ -47,7 +47,7 @@ export default function SignUp() {
         }
 
 
-        navigate("/dashboard")
+        navigate("/home")
     }
     return (
   <div

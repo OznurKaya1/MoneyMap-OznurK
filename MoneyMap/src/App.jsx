@@ -12,6 +12,10 @@ import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Contact from "./components/Pages/Contact";
 import ForgotMyPassword from "./components/ForgotMyPassword";
+import TrackingCard from "./components/Pages/TrackingCard";
+
+
+import SavingGoalsCard from './components/Pages/SavingGoalsCard'
 
 
 
@@ -21,6 +25,11 @@ export default function App() {
   const [incomeList, setIncomeList] = useState([]);
   const [expenseList, setExpenseList] = useState([]);
   const [savingsList, setSavingsList] = useState([]);
+
+
+  const totalExpenses = expenseList.reduce((sum, item) => sum + item.amount, 0);
+  const totalIncome = incomeList.reduce((sum, item) => sum + item.amount, 0);
+  const totalBalance = totalIncome - totalExpenses;
 
   return (
     <div>
@@ -34,6 +43,10 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forgotmypassword" element={<ForgotMyPassword />} />
+        <Route path="/trackingcard" element={<TrackingCard />} />
+        <Route path="/savinggoalscard" element={<SavingGoalsCard />} />
+
+
 
 
         <Route
@@ -53,7 +66,13 @@ export default function App() {
 
         <Route
           path="/expenses"
-          element={<Expenses expenseList={expenseList} setExpenseList={setExpenseList} />}
+          element={
+            <Expenses
+              expenseList={expenseList}
+              setExpenseList={setExpenseList}
+              totalBalance={totalBalance}
+            />
+          }
         />
       </Routes>
 

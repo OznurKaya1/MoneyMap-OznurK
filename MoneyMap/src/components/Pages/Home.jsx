@@ -21,26 +21,27 @@ export default function Home() {
 
    
       <section className="features">
-        <div className="feature-card">
+        <div className="feature-card"
+        onClick={() => navigate('/trackingcard')} >
+            
           <h4>Track Income & Expenses</h4>
           <p>See every transaction in one place and understand your spending habits.</p>
         </div>
-        <div className="feature-card">
+        <div className="feature-card"
+        onClick={() => navigate('/savinggoalscard')} >
+          
           <h4>Set Savings Goals</h4>
-          <p>Create goals and monitor your progress to reach them faster.</p>
+          <p>Create goals and build realistic budget that fit your lifestyle witout stress.</p>
         </div>
-        <div className="feature-card">
-          <h4>Plan Your Budget</h4>
-          <p>Build realistic budgets that fit your lifestyle without stress.</p>
-        </div>
+       
       </section>
 
       
       <section className="visuals">
         <img src={saving} alt="Saving" className="saving-image" />
-        <p className="visual-text">
-          Understand your finances visually. Track your income, expenses, and savings over time.
-        </p>
+        <h3 className="visual-text">
+          <em>"Understand your finances visually. Track your income, expenses, and savings over time."</em>
+        </h3>
       </section>
 
  

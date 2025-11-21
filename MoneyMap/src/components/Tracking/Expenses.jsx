@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-//import "./Tracking.css";
-
+import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router";
 
-export default function Expenses({ expenseList, setExpenseList }) {
+export default function Expenses({ expenseList, setExpenseList, totalBalance }) {
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
@@ -94,6 +93,7 @@ export default function Expenses({ expenseList, setExpenseList }) {
           <button type="button" className="btn" onClick={() => navigate('/income')}>
            Go to Income Page
           </button>
+          
         </form>
       </section>
 
@@ -132,6 +132,9 @@ export default function Expenses({ expenseList, setExpenseList }) {
           </tr>
         </tfoot>
       </table>
-    </div>
+  
+        <h3>You have {totalBalance.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} to save! </h3> 
+      </div>
+    
   );
 }

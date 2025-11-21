@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
-//import './Tracking.css';
+import { Link } from 'react-router-dom'
 
 export default function Income({ incomeList, setIncomeList }) {
   const [date, setDate] = useState("");
@@ -140,6 +140,8 @@ export default function Income({ incomeList, setIncomeList }) {
           </tr>
         </tfoot>
       </table>
+    
     </div>
+
   );
 }

@@ -60,14 +60,13 @@ header {
 }
 
 .saving-image {
-  width: 70%;
+  width: 50%;
   max-width: 300px;
   height: auto;
   display: block;
   margin: 20px auto;
   border-radius: 12px;
   float: right;
-  
 }
 
 .home-page-h2 {
@@ -248,33 +247,24 @@ header {
   width: 100%;
 }
 
-/* Dashboard.css */
-
-/* Dashboard.css */
-
 .dashboard-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* vertically center */
-  align-items: center;     /* horizontally center */
-  min-height: 100vh;
+  max-width: 900px;
+  margin: 120px auto 50px auto;
   padding: 20px;
-  background: #f9fafb;
-  font-family: 'Segoe UI', sans-serif;
-  color: #111;
   text-align: center;
+  font-family: 'Kodchasan', sans-serif;
 }
 
 .dashboard-container h2 {
-  font-size: 2.2rem;
-  margin-bottom: 50px;
-  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
 }
 
 .dashboard-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
   justify-content: center;
 }
 
@@ -282,33 +272,43 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
-  padding: 30px 25px;
-  border-radius: 15px;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  justify-content: center;
   width: 180px;
+  height: 180px;
+  text-decoration: none;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.2s;
+  color: #333;
+  padding: 15px;
 }
 
 .dashboard-link:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background-color: cadetblue;
+  color: white;
+  transform: translateY(-5px);
 }
 
 .dashboard-link span {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .dashboard-icon {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: transform 0.2s;
 }
 
+.dashboard-link:hover .dashboard-icon {
+  transform: scale(1.1);
+}
 
 .home-page-background {
   width: 100vw;
