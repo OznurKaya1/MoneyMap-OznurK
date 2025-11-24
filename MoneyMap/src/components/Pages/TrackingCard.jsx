@@ -22,11 +22,11 @@ export default function TrackingCard() {
             <img src={Card} alt="Card" className="tracking-card-image"></img>
             <div className='tracking-buttons'>
                 <Link to='/income'>
-                    <button className='tracking-button'>Cash Flow</button>
+                    <button className='tracking-button'>Income</button>
                 </Link>
 
                 <Link to='/expenses'>
-                    <button className='tracking-button'>Spending</button>
+                    <button className='tracking-button'>Expenses</button>
                 </Link>
             </div>
 

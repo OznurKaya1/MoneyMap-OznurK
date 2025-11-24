@@ -4,6 +4,31 @@ import { useNavigate } from 'react-router'
 
 export default function Contact() {
   const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [error, setError] = useState("")
+  const [message, setMessage] = useState("")
+
+  const handleContactForm = (e) => {
+    e.preventDefault()
+
+    if (!email || !email.includes('@') || !email.includes(".")) {
+      setError("Please enter a valid email adress.")
+      return;
+    }
+
+    if (!name) {
+      setError("Please enter your name.")
+      return;
+    }
+    if (!message) {
+      setError("Please write your message.")
+      return;
+    }
+    setError("")
+    navigate("/home")
+  }
+
   return (
     <div className="contact-container">
       <p>
@@ -11,13 +36,18 @@ export default function Contact() {
         You can reach us anytime at <strong>support@moneymap.com</strong> or by filling out the contact form below.
       </p>
 
-      <form className="contact-form">
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+
+      <form className="contact-form" onSubmit={handleContactForm}>
         <label htmlFor="username">Name</label>
         <input
           type="text"
           id="username"
           name="username"
           placeholder="Enter your name"
+          value={name}
+          onChange={(e) =>setName(e.target.value)}
           required
         />
 
@@ -27,6 +57,8 @@ export default function Contact() {
           id="email"
           name="email"
           placeholder="Enter your email"
+          value={email}
+          onChange={(e) =>setEmail(e.target.value)}
           required
         />
 
@@ -39,13 +71,16 @@ export default function Contact() {
           rows="7"
           cols="30"
           placeholder="Write your feedback here"
+          value={message}
+          onChange={(e)=> setMessage(e.target.value)}
           style={{ border: "2px solid black" }}>
 
         </textarea>
 
         <input type="submit" value="Submit" />
       </form>
-      <button type="button" className="btn" onClick={() => navigate('/Dashboard')}>
+      <button type="button" className="btn"
+        onClick={() => navigate('/Dashboard')}>
         Dashboard
       </button>
     </div>

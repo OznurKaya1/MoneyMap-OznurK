@@ -11,7 +11,7 @@ export default function Income({ incomeList, setIncomeList }) {
   const [editingIndex, setEditingIndex] = useState(null);
   const navigate = useNavigate();
 
-  const handleAddBtn = (e) => {
+  const handleAddIncome = (e) => {
     e.preventDefault();
     setError("");
 
@@ -26,8 +26,9 @@ export default function Income({ incomeList, setIncomeList }) {
       setIncomeList([...incomeList, newIncome]);
     } else {
 
-      const updatedList = incomeList.map((item, idx) => idx === editingIndex ? newIncome : item);
-      setIncomeList(updatedList);
+      const updatedIncomeList = incomeList.map((incomeItem, currentIndex) => 
+        currentIndex === editingIndex ? newIncome : incomeItem);
+      setIncomeList(updatedIncomeList);
       setEditingIndex(null);
     }
 
@@ -37,25 +38,25 @@ export default function Income({ incomeList, setIncomeList }) {
     setDescription("");
   };
 
-  const handleRemove = (index) => {
-    setIncomeList(incomeList.filter((_, i) => i !== index));
+  const handleRemoveIncome = (indexToRemove) => {
+    setIncomeList(incomeList.filter((incomeItem, currentIndex) => currentIndex !== indexToRemove));
   };
 
-  const handleEdit = (index) => {
-    const item = incomeList[index];
-    setDate(item.date);
-    setAmount(item.amount);
-    setDescription(item.description);
-    setEditingIndex(index);
+  const handleEditIncome = (indexToEdit) => {
+    const incomeItem = incomeList[indexToEdit];
+    setDate(incomeItem.date);
+    setAmount(incomeItem.amount);
+    setDescription(incomeItem.description);
+    setEditingIndex(indexToEdit);
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault()
-      handleAddBtn(e)
+      handleAddIncome(e)
     }
   }
 
-  const totalAmount = incomeList.reduce((sum, item) => sum + item.amount, 0);
+  const totalAmount = incomeList.reduce((sum, incomeItem) => sum + incomeItem.amount, 0);
 
   return (
     <div className='main-container-table'>
@@ -90,7 +91,7 @@ export default function Income({ incomeList, setIncomeList }) {
           />
 
 
-          <button type="button" className="btn" onClick={handleAddBtn}>
+          <button type="button" className="btn" onClick={handleAddIncome}>
             Add
           </button>
 
@@ -112,19 +113,19 @@ export default function Income({ incomeList, setIncomeList }) {
           </tr>
         </thead>
         <tbody>
-          {incomeList.map((item, index) => (
-            <tr key={index}>
-              <td>{item.date}</td>
-              <td>{item.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
-              <td>{item.description}</td>
+          {incomeList.map((incomeItem, currentIndex) => (
+            <tr key={currentIndex}>
+              <td>{incomeItem.date}</td>
+              <td>{incomeItem.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+              <td>{incomeItem.description}</td>
               <td>
                 <span className="action-buttons">
                   <BsFillTrashFill
-                    onClick={() => handleRemove(index)}
+                    onClick={() => handleRemoveIncome(currentIndex)}
                     style={{ cursor: 'pointer', marginRight: '8px' }}
                   />
                   <BsFillPencilFill
-                    onClick={() => handleEdit(index)}
+                    onClick={() => handleEditIncome(currentIndex)}
                     style={{ cursor: 'pointer' }}
                   />
                 </span>

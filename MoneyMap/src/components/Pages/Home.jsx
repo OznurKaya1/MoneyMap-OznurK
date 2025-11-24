@@ -35,26 +35,13 @@ export default function Home() {
         </div>
        
       </section>
-
       
       <section className="visuals">
         <img src={saving} alt="Saving" className="saving-image" />
         <h3 className="visual-text">
-          <em>"Understand your finances visually. Track your income, expenses, and savings over time."</em>
+          <em>Understand your finances visually. Track your income, expenses, and savings over time.</em>
         </h3>
       </section>
-
- 
-      <section className="cta">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => navigate('/Dashboard')}
-        >
-          Go to Dashboard
-        </button>
-      </section>
-
     </main>
   );
 }

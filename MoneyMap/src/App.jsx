@@ -13,12 +13,7 @@ import About from "./components/Pages/About";
 import Contact from "./components/Pages/Contact";
 import ForgotMyPassword from "./components/ForgotMyPassword";
 import TrackingCard from "./components/Pages/TrackingCard";
-
-
 import SavingGoalsCard from './components/Pages/SavingGoalsCard'
-
-
-
 import './App.css'
 
 export default function App() {
@@ -45,9 +40,6 @@ export default function App() {
         <Route path="/forgotmypassword" element={<ForgotMyPassword />} />
         <Route path="/trackingcard" element={<TrackingCard />} />
         <Route path="/savinggoalscard" element={<SavingGoalsCard />} />
-
-
-
 
         <Route
           path="/dashboard"

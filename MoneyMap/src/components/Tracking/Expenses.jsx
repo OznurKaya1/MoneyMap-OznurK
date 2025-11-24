@@ -16,9 +16,16 @@ export default function Expenses({ expenseList, setExpenseList, totalBalance }) 
 
     if (!date) { setError("Please enter date."); return; }
     if (!amount) { setError("Please enter amount."); return; }
-    if (Number(amount) < 0) { setError("Amount can't be negative."); return; }
+    if (Number(amount) < 0) { setError("Amount can't be less than zero."); return; }
 
     const newExpense = { date, amount: Number(amount), description };
+    const currentTotalExpense =expenseList.reduce((sum, item) => sum + item.amount,0);
+    if(currentTotalExpense + Number(amount) > totalBalance){
+      setError("Cannot add this expense: total expenses would exceed your total income!")
+     
+      return;
+    }
+  
 
     if (editingIndex === null) {
       setExpenseList([...expenseList, newExpense]);
@@ -36,7 +43,7 @@ export default function Expenses({ expenseList, setExpenseList, totalBalance }) 
   };
 
   const handleRemove = (index) => {
-    setExpenseList(expenseList.filter((_, i) => i !== index));
+    setExpenseList(expenseList.filter((spend, i) => i !== index));
   };
 
   const handleEdit = (index) => {
@@ -61,7 +68,7 @@ export default function Expenses({ expenseList, setExpenseList, totalBalance }) 
     <div className="main-container-table">
       <section>
         <form>
-          {error && <p className="error">{error}</p>}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
 
           <label htmlFor="date">Date</label>
           <input
@@ -133,7 +140,7 @@ export default function Expenses({ expenseList, setExpenseList, totalBalance }) 
         </tfoot>
       </table>
   
-        <h3>You have {totalBalance.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} to save! </h3> 
+        <h3>You have {totalBalance.toLocaleString('en-US', { style: 'currency', currency: 'USD' })} to spend! </h3> 
       </div>
     
   );
