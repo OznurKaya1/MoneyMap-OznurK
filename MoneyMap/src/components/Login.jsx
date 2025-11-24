@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './login.css'
-//import LoginPage from './Images/LoginPage.jpg'
+
+
 
 export default function Login() {
     const [email, setEmail] = useState("")
@@ -31,25 +31,21 @@ export default function Login() {
             setError("Your password must have at least one capital letter.")
             return
         }
+        if(password.length < 9){
+            setError("Your password must be at least 9 characters long.")
+            return
+        }
 
 
-        navigate("/dashboard")
+        navigate("/home")
     }
 
     return (
         <div 
-        class='login-page'
-        /*  style={{
-                backgroundImage: `url(${LoginPage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                height: '100vh',
-                width: '100%',
-
-            }}*/>
-            <form class='container'>
+        className='login-page'>
+            <form className='login-container'>
                 <div className='input-box'>
-                    <h1>Login</h1>
+                    <h1 className='login'>Login</h1>
                     <label htmlFor='email'>Email</label>
                     <input
                         type='email'
@@ -77,19 +73,16 @@ export default function Login() {
 
                 {error && <p className='error-message'>{error}</p>}
 
-                <button type='submit' class='btn' onClick={handleLogin}>Login</button>
+                <button type='submit' className='btn' onClick={handleLogin}>Login</button>
 
-                <p>
+                <div className='login-links'>
                     <Link to='/signup' className="clickable-underline">
                         Don't have an account?
                     </Link>
-                </p>
-
-                <p>
                     <Link to='/forgotmypassword' className="clickable-underline">
                         Forgot password?
                     </Link>
-                </p>
+               </div>
             </form>
         </div>
     )

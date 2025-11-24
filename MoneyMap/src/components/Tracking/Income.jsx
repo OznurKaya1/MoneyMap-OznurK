@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
-import './Tracking.css';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export default function Income({ incomeList, setIncomeList }) {
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
-  const [editingIndex, setEditingIndex] = useState(null); // Track row being edited
+  const [editingIndex, setEditingIndex] = useState(null);
+  const navigate = useNavigate();
 
-  const handleAddBtn = (e) => {
+  const handleAddIncome = (e) => {
     e.preventDefault();
     setError("");
 
@@ -20,37 +22,44 @@ export default function Income({ incomeList, setIncomeList }) {
     const newIncome = { date, amount: Number(amount), description };
 
     if (editingIndex === null) {
-      // Add new row
+
       setIncomeList([...incomeList, newIncome]);
     } else {
-      // Update existing row
-      const updatedList = incomeList.map((item, idx) => idx === editingIndex ? newIncome : item);
-      setIncomeList(updatedList);
-      setEditingIndex(null); // Reset editing state
+
+      const updatedIncomeList = incomeList.map((incomeItem, currentIndex) => 
+        currentIndex === editingIndex ? newIncome : incomeItem);
+      setIncomeList(updatedIncomeList);
+      setEditingIndex(null);
     }
 
-    // Clear form fields
+
     setDate("");
     setAmount("");
     setDescription("");
   };
 
-  const handleRemove = (index) => {
-    setIncomeList(incomeList.filter((_, i) => i !== index));
+  const handleRemoveIncome = (indexToRemove) => {
+    setIncomeList(incomeList.filter((incomeItem, currentIndex) => currentIndex !== indexToRemove));
   };
 
-  const handleEdit = (index) => {
-    const item = incomeList[index];
-    setDate(item.date);
-    setAmount(item.amount);
-    setDescription(item.description);
-    setEditingIndex(index); // Mark row for updating
+  const handleEditIncome = (indexToEdit) => {
+    const incomeItem = incomeList[indexToEdit];
+    setDate(incomeItem.date);
+    setAmount(incomeItem.amount);
+    setDescription(incomeItem.description);
+    setEditingIndex(indexToEdit);
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      handleAddIncome(e)
+    }
+  }
 
-  const totalAmount = incomeList.reduce((sum, item) => sum + item.amount, 0);
+  const totalAmount = incomeList.reduce((sum, incomeItem) => sum + incomeItem.amount, 0);
 
   return (
-    <div className='main-container'>
+    <div className='main-container-table'>
       <section>
         <form>
           {error && <p className="error">{error}</p>}
@@ -69,6 +78,7 @@ export default function Income({ incomeList, setIncomeList }) {
             id="amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
 
           <label htmlFor="description">Description</label>
@@ -77,12 +87,18 @@ export default function Income({ incomeList, setIncomeList }) {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
 
-          {/* Always says "Add" */}
-          <button type="button" className="btn" onClick={handleAddBtn}>
+
+          <button type="button" className="btn" onClick={handleAddIncome}>
             Add
           </button>
+
+          <button type="button" className="btn" onClick={() => navigate('/expenses')}>
+            Go to Expenses
+          </button>
+
         </form>
       </section>
 
@@ -97,19 +113,19 @@ export default function Income({ incomeList, setIncomeList }) {
           </tr>
         </thead>
         <tbody>
-          {incomeList.map((item, index) => (
-            <tr key={index}>
-              <td>{item.date}</td>
-              <td>{item.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
-              <td>{item.description}</td>
+          {incomeList.map((incomeItem, currentIndex) => (
+            <tr key={currentIndex}>
+              <td>{incomeItem.date}</td>
+              <td>{incomeItem.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+              <td>{incomeItem.description}</td>
               <td>
                 <span className="action-buttons">
                   <BsFillTrashFill
-                    onClick={() => handleRemove(index)}
+                    onClick={() => handleRemoveIncome(currentIndex)}
                     style={{ cursor: 'pointer', marginRight: '8px' }}
                   />
                   <BsFillPencilFill
-                    onClick={() => handleEdit(index)}
+                    onClick={() => handleEditIncome(currentIndex)}
                     style={{ cursor: 'pointer' }}
                   />
                 </span>
@@ -119,12 +135,14 @@ export default function Income({ incomeList, setIncomeList }) {
         </tbody>
         <tfoot>
           <tr>
-            <th>Total</th>
+            <th>Balance</th>
             <th>{totalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</th>
             <th></th>
           </tr>
         </tfoot>
       </table>
+    
     </div>
+
   );
 }

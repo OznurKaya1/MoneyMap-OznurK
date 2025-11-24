@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import LoginPage from './Images/LoginPage.jpg'
-import './signUp.css'
+
 
 export default function SignUp() {
     const [email, setEmail] = useState("")
@@ -47,7 +47,7 @@ export default function SignUp() {
         }
 
 
-        navigate("/dashboard")
+        navigate("/home")
     }
     return (
   <div
@@ -63,9 +63,9 @@ export default function SignUp() {
       alignItems: 'center',
     }}
   >
-    <form className='container'>
+    <form className='sign-up-container'>
       <div className='input-box'>
-        <h1>Sign up</h1>
+        <h1 className='sign-up'>Sign up</h1>
         <label htmlFor='firstName'>First name</label>
         <input
           type='text'

@@ -1,34 +1,58 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Dollar from '../Images/dollar.jpg';
 
-import Dollar from '../Images/dollar.jpg'
 export default function About() {
-    return (
+  const navigate = useNavigate();
 
+  return (
+    <main className="about-page">
 
-        <div>
-            <p>At MoneyMap, we believe that understanding your finances shouldn’t require a finance degree.
-                Too often, managing money feels overwhelming — juggling bills, tracking expenses, and trying
-                to figure out where your paycheck really goes. That’s why we built MoneyMap: a simple, intuitive
-                tool that brings clarity to your financial life.MoneyMap gives you a complete picture of your income, expenses, and savings in one easy-to-use
-                dashboard. Our mission is to help you see patterns, spot opportunities, and take control of your
-                financial future. Whether you want to pay off debt, grow your savings, or just understand your spending habits,
-                MoneyMap gives you the tools to make smarter decisions every day.</p>
+    
+      <section className="about-intro">
+        <h1>Welcome to MoneyMap</h1>
+        <p>
+          At MoneyMap, we believe that understanding your finances shouldn’t require a finance degree.  
+          Too often, managing money feels overwhelming — juggling bills, tracking expenses, and trying to figure out where your paycheck really goes.
+        </p>
+      </section>
 
-            <p>We know that everyone’s financial journey is unique. That’s why we designed MoneyMap to be flexible
-                you can customize categories, set goals that fit your lifestyle, and visualize progress at your own pace.
-                No confusing charts or hidden fees, just clear insights that make sense.</p>
+      <section className="about-mission">
+        <h2>Our Mission</h2>
+        <p>
+          MoneyMap gives you a complete picture of your income, expenses, and savings in one intuitive dashboard.  
+          Our goal is to help you see patterns, spot opportunities, and take control of your financial future.
+        </p>
+      </section>
 
-            <p>Behind MoneyMap is a small team of people who care deeply about making finance simple and accessible for
-                everyone. We believe that when people have the right tools, they can make powerful changes in their lives.
-                Our goal is to remove the stress from budgeting and turn it into something empowering — a habit that helps
-                you grow, not something that holds you back.</p>
-            <p>MoneyMap is more than just a budgeting app — it’s your guide to financial confidence. We’re here to help
-                you make informed choices, stay organized, and build the financial foundation for the life you want. Your
-                journey toward better money management starts here. </p>
+      <section className="about-philosophy">
+        <h2>Our Philosophy</h2>
+        <p>
+          We know that everyone’s financial journey is unique. That’s why MoneyMap is flexible: you can customize categories, set goals that fit your lifestyle, and visualize progress at your own pace.  
+          Behind MoneyMap is a small team of people who care deeply about making finance simple and accessible for everyone.
+        </p>
+      </section>
 
-            <img src={Dollar} alt='dollar' className='dollar-image'></img>
-        </div>
+     
+      <section className="about-visual">
+        <img src={Dollar} alt="Dollar" className="dollar-image" />
+      </section>
 
+    
+      <section className="about-conclusion">
+        <p>
+          MoneyMap is more than just a budgeting app — it’s your guide to financial confidence.  
+          We’re here to help you make informed choices, stay organized, and build the financial foundation for the life you want.
+        </p>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => navigate('/Dashboard')}
+        >
+          Go to Dashboard
+        </button>
+      </section>
 
-    )
+    </main>
+  );
 }

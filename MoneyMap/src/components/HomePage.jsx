@@ -1,23 +1,24 @@
 import React from 'react'
-import './homePage.css'
+
 import background from './Images/background.jpg'
 import { Link } from 'react-router-dom'
 import Login from './Login'
 
 export default function HomePage() {
   return (
-    <main>
-      <div className="home-page"
+    <div className='home-page-container'>
+      <div className="home-page-background"
 
         style={{ backgroundImage: `url(${background})` }}
 
       >
 
-        <h1>MoneyMap</h1>
-        <h3>Map Your Wealth</h3>
-
-        <Login />
+        <h1 className="app-name">MoneyMap</h1>
+        <h3 className="map-your-wealth">Map Your Wealth</h3>
+        <div className="login-wrapper">
+          <Login />
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
